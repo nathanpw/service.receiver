@@ -1,0 +1,83 @@
+# Kodi Media Center language file
+# Addon Name: Pioneer Service
+# Addon id: service.receiver
+# Addon Provider: nathanpw
+msgid ""
+msgstr ""
+"Project-Id-Version: KODI Main\n"
+"Report-Msgid-Bugs-To: https://github.com/nathanpw/kodi.service.receiver/issues/\n"
+"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Kodi Translation Team\n"
+"Language-Team: English (New Zealand) (http://www.transifex.com/projects/p/kodi-main/language/en_NZ/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en_NZ\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#This is a comment
+
+msgctxt "#32000"
+msgid "General"
+msgstr ""
+
+msgctxt "#32001"
+msgid "Pioneer Receiver"
+msgstr ""
+
+msgctxt "#32002"
+msgid "IP Address"
+msgstr ""
+
+msgctxt "#32003"
+msgid "Port"
+msgstr ""
+
+msgctxt "#32004"
+msgid "Time to display notifications in in milliseconds"
+msgstr ""
+
+msgctxt "#32100"
+msgid "Advanced Settings"
+msgstr ""
+
+msgctxt "#32101"
+msgid "Debug Mode"
+msgstr ""
+
+msgctxt "#32102"
+msgid "Debug"
+msgstr ""
+
+msgctxt "#32103"
+msgid "Display Notifications"
+msgstr ""
+
+msgctxt "#32200"
+msgid "Icon Settings"
+msgstr ""
+
+msgctxt "#32201"
+msgid "Notification Icons"
+msgstr ""
+
+msgctxt "#32202"
+msgid "Display Black Icon"
+msgstr ""
+
+msgctxt "#32203"
+msgid "Icon Style"
+msgstr ""
+
+msgctxt "#32204"
+msgid "Style 1"
+msgstr ""
+
+msgctxt "#32205"
+msgid "Style 2"
+msgstr ""
+
+msgctxt "#32206"
+msgid "Style 3"
+msgstr ""
