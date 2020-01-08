@@ -4,7 +4,7 @@
         <setting type="lsep" label="32001" />
         <setting id="ip_address" type="ipaddress" label="32002" />
         <setting id="port" type="number" label="32003" default="23"/>
-        <setting id="display_time" type="number" label="32004" default="500"/>
+        <setting id="display_time" type="number" label="32004" default="1000"/>
     </category>
     <category label="32200">
         <setting type="lsep" label="32201" />
