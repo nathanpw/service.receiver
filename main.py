@@ -37,16 +37,23 @@ def log(msg_text, msg_type):
 
 def listenVol(Receiver):
     monitor = xbmc.Monitor()
-
+    sock = Receiver.tn.get_socket()
     while not monitor.abortRequested():
-        sock =  Receiver.tn.get_socket()
         received = sock.recv(1024).decode()
-        # Calculate the volume and display when changed.
+        # Find and Calculate the volume for display.
         vol = findVolume(received)
         if vol != False:
             log('Volume changed: ' + str(vol), 'VOLUME_CHANGE')
-        # Sleep/wait and break if abort was requested.
-        if monitor.waitForAbort(1):
+            # Sleep/wait longer after a display, break if abort requested.
+            if monitor.waitForAbort(1):
+                break
+            # Check if the volume changed while we were sleeping and display.
+            received = sock.recv(1024).decode()
+            vol = findVolume(received)
+            if vol != False:
+                log('Volume changed: ' + str(vol), 'VOLUME_CHANGE')
+        # Sleep/wait for a short period and break if abort was requested.
+        if monitor.waitForAbort(0.25):
             break
 
 def findVolume(string):
