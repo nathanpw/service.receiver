@@ -2,7 +2,6 @@
 
 from resources.lib import loghelper
 
-import sys
 import socket
 import selectors
 import time
