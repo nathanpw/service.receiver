@@ -16,8 +16,6 @@ import time
 
 kodilogging.config()
 
-#service.run()
-
 def log(msg_text, msg_type):
     addon = xbmcaddon.Addon()
     addon_name = addon.getAddonInfo('name')
@@ -45,10 +43,19 @@ def listenVol(Receiver):
         sock =  Receiver.tn.get_socket()
         received = sock.recv(1024).decode()
         # Calculate the volume and display when changed.
-        if received.startswith('VOL'):
-            vol_string = received[3:]
-            vol = ( int(vol_string) - 1 ) / 2.0
+        vol = findVolume(received)
+        if vol != False:
             log('Volume changed: ' + str(vol), 'VOLUME_CHANGE')
+        # Sleep/wait and break if abort was requested.
+        if monitor.waitForAbort(1):
+            break
+
+def findVolume(string):
+    pos = string.rfind("VOL")
+    if  pos > -1:
+        return ( int(string[pos+3:pos+6]) - 1 ) / 2.0
+    else:
+        return False
 
 def main():
     # Check we have an ip and port configured.
