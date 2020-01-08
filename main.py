@@ -9,7 +9,6 @@ import logging
 import xbmcaddon
 import xbmc
 import xbmcgui
-import time
 
 # Keep this file to a minimum, as Kodi
 # doesn't keep a compiled copy of this
@@ -53,7 +52,7 @@ def listenVol(Receiver):
 def findVolume(string):
     pos = string.rfind("VOL")
     if  pos > -1:
-        return ( int(string[pos+3:pos+6]) - 1 ) / 2.0
+        return ((int(string[pos+3:pos+6]) - 1 ) / 2.0) - 80
     else:
         return False
 
@@ -76,7 +75,7 @@ def main():
     monitor = xbmc.Monitor()
 
     # Start a thread to listen and update volume changes.
-    volListener = Thread(target=listenVol, args=[Receiver]).start()
+    Thread(target=listenVol, args=[Receiver]).start()
 
     while not monitor.abortRequested():
         # Sleep/wait for abort for 1 seconds
