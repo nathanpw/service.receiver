@@ -34,10 +34,6 @@ msgctxt "#32003"
 msgid "Port"
 msgstr ""
 
-msgctxt "#32004"
-msgid "Time to display notifications in in milliseconds"
-msgstr ""
-
 msgctxt "#32100"
 msgid "Advanced Settings"
 msgstr ""
@@ -52,6 +48,34 @@ msgstr ""
 
 msgctxt "#32103"
 msgid "Display Notifications"
+msgstr ""
+
+msgctxt "#32104"
+msgid "Time to display volume notifications in milliseconds"
+msgstr ""
+
+msgctxt "#32105"
+msgid "Wait time to retry connecting to receiver in seconds"
+msgstr ""
+
+msgctxt "#32106"
+msgid "Wait time after sending a volume change in milliseconds"
+msgstr ""
+
+msgctxt "#32200"
+msgid "Icon Settings"
+msgstr ""
+
+msgctxt "#32201"
+msgid "Notification Icons"
+msgstr ""
+
+msgctxt "#32202"
+msgid "Display Black Icon"
+msgstr ""
+
+msgctxt "#32203"
+msgid "Icon Style"
 msgstr ""
 
 msgctxt "#32200"
