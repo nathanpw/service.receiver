@@ -10,6 +10,12 @@
         <setting id="icon_color" type="bool" label="32202" default="false"/>
         <setting id="icon_style" type="select" label="32203" default="0" lvalues="32204|32205|32206" />
     </category>
+    <category label="32300">
+        <setting type="lsep" label="32301" />
+        <setting id="ifttt_token" type="text" label="32302" default=""/>
+        <setting id="ifttt_start" type="text" label="32303" default=""/>
+        <setting id="ifttt_stop" type="text" label="32304" default=""/>
+    </category>
     <category label="32100">
         <setting type="lsep" label="32101" />
         <setting id="debug" type="bool" label="32102" default="false"/>

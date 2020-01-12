@@ -5,22 +5,46 @@ from resources.lib import loghelper
 import socket
 import selectors
 import time
+import urllib2
 
 class sReceiver(object):
     "Socket client to Receiver"
 
-    def __init__(self, ip, port=23, timeout=10):
+    def __init__(self, ip, port=23, start_url = '', stop_url = ''):
         self.server_addr = (ip, port)
         self.events = selectors.EVENT_READ
         self.data = sData(bytes=0, text=b"")
+        self.connected = False
+        self.start_url = False if start_url == '' else start_url
+        self.stop_url = False if stop_url == '' else stop_url
 
-    def connect(self):
-        loghelper.log('Connecting to receiver ' + str(self.server_addr), 'NOTIFICATION_INFO')
+    def connect(self, timeout=10):
+        loghelper.log('Connecting to receiver ' + repr(self.server_addr), 'NOTIFICATION_INFO')
         sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         sock.setblocking(False)
-        sock.connect_ex(self.server_addr)
-        self.sel = selectors.DefaultSelector()
-        self.sel.register(sock, self.events, data=self.data)
+        sock.settimeout(timeout)
+        try:
+            sock.connect(self.server_addr)
+        except Exception as ex:
+            self.connected = False
+            loghelper.log("Could not connect to receiver on " + repr(self.server_addr) + ": " + str(ex) , 'NOTIFICATION_ERROR')
+            return False
+        else:
+            self.connected = True
+            self.sel = selectors.DefaultSelector()
+            self.sel.register(sock, self.events, data=self.data)
+            if self.start_url:
+                loghelper.log('Connecting to IFTTT start url: ' + self.start_url, 'NOTIFICATION_INFO')
+                self.hitUrl(self.start_url)
+            loghelper.log("Connected to receiver " + repr(self.server_addr), 'NOTIFICATION_INFO')
+            return True
+
+    def disconnect (self, sock):
+        self.sel.unregister(sock)
+        sock.close()
+        if self.stop_url:
+            loghelper.log('Connecting to IFTTT stop url: ' + self.start_url, 'NOTIFICATION_INFO')
+            self.hitUrl(self.stop_url)
 
     def listener_service(self, key, mask, delay = 1):
         sock = key.fileobj
@@ -43,8 +67,13 @@ class sReceiver(object):
                 # If we receive the power down signal close the connection
                 elif self.data.text.rfind("PWR1") > -1:
                     loghelper.log('Receiver shutting down.', 'NOTIFICATION_INFO')
-                    self.sel.unregister(sock)
-                    sock.close()
+                    self.disconnect(sock)
+
+    def hitUrl(self, url):
+        try:
+            urllib2.urlopen(url).read()
+        except Exception as ex:
+            loghelper.log("Could not connect to url " + url + ": " + str(ex) , 'NOTIFICATION_ERROR')
 
 class sData(object):
     def __init__(self, bytes=0, text=b""):

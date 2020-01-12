@@ -105,3 +105,23 @@ msgstr ""
 msgctxt "#32206"
 msgid "Style 3"
 msgstr ""
+
+msgctxt "#32300"
+msgid "IFTTT"
+msgstr ""
+
+msgctxt "#32301"
+msgid "IFTTT Triggers"
+msgstr ""
+
+msgctxt "#32302"
+msgid "IFTTT token"
+msgstr ""
+
+msgctxt "#32303"
+msgid "IFTTT Start command"
+msgstr ""
+
+msgctxt "#32304"
+msgid "IFTTT Stop command"
+msgstr ""
