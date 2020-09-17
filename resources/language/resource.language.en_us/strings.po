@@ -110,7 +110,7 @@ msgctxt "#32300"
 msgid "IFTTT"
 msgstr ""
 
-msgctxt "#32307"
+msgctxt "#32305"
 msgid "IFTTT Enabled"
 msgstr ""
 

@@ -12,7 +12,7 @@
     </category>
     <category label="32300">
         <setting type="lsep" label="32301" />
-        <setting id="ifttt_on" type="bool" label="32207" default="false"/>
+        <setting id="ifttt_on" type="bool" label="32305" default="false"/>
         <setting id="ifttt_token" type="text" label="32302" default=""/>
         <setting id="ifttt_start" type="text" label="32303" default=""/>
         <setting id="ifttt_stop" type="text" label="32304" default=""/>
