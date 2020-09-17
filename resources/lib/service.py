@@ -17,7 +17,7 @@ def run():
         ifttt_token = addon.getSetting('ifttt_token')
         ifttt_start = addon.getSetting('ifttt_start')
         ifttt_stop = addon.getSetting('ifttt_stop')
-        if ifttt_token != '':
+        if addon.getSetting('ifttt_on') and ifttt_token != '':
             if ifttt_start != '':
                 start_url = "https://maker.ifttt.com/trigger/" + ifttt_start + "/with/key/" + ifttt_token
             else:
